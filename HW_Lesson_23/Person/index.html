@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/style.css" rel="stylesheet">
+    <title>Persons</title>
+    <script src="./js/person.js" defer></script> 
+    <script src="./js/employee.js" defer></script> 
+    <script src="./js/company.js" defer></script> 
+    <script src="./js/script.js" defer></script> 
+</head>
+<header>
+
+</header>
+<nav>
+
+</nav>
+<body>
+    <main>
+    <div class="input-group">
+        
+            <input type="text" id="personId" required class="input">
+            <label for="personId" class="label-id input-label">ID Number</label>
+        
+            <input type="text" id="firstName" required class="input">
+            <label for="firstName" class="label-first input-label">First Name</label>
+        
+            <input type="text" id="lastName" required class="input">
+            <label for="lastName" class="label-last input-label">Last Name</label>
+        
+            <input type="date" id="age" required class="input">
+            <label for="age" class="label-age input-labal input-label">Age</label>
+        
+            <input id="salary" type="number" min="0" required class="input">
+            <label for="salary" class="label-sal input-label">Salary</label>
+                <button id="addPerson">Add person</button>
+        
+    </>
+    
+    <div>
+        <h2>Stats</h2>
+        <table>
+            <thead>
+              <tr>
+                <td>MAX Age</td>
+                <td>MIN Age</td>
+                <td>Average Age</td>
+                <td>Average Salary</td>
+                <td>Total Salary</td>
+              </tr>
+            </thead>
+            <tbody id="stats">
+              
+            </tbody>
+            <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tfoot>
+          </table>
+    </div>
+    <div>
+        <h2>Persons</h2>
+        <!-- <ol id="personsList"></ol> -->
+        <table>
+            <thead>
+              <tr>
+                <td>ID Number</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Age</td>
+                <td>salary</td>
+                
+              </tr>
+            </thead>
+            <tbody id="personsList">
+            
+            </tbody>
+            <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  
+                </tr>
+              </tfoot>
+          </table>
+    </div>
+   </main>
+</body>
+<footer>
+
+</footer>
+</html>

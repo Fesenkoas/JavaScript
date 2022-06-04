@@ -1,5 +1,5 @@
 const firm = new Company();
-
+printStats();
 //Event Keyboard
 addEventListener("keydown", (e) => {
   if (e.key === "Enter") addPersons();
@@ -7,7 +7,6 @@ addEventListener("keydown", (e) => {
 //Event Mouse
 addEventListener("click", (e) => {
   if (e.target === addPerson) addPersons();
-  if (e.target === calcStats) printStats();
 });
 //Add Persons
 function addPersons() {

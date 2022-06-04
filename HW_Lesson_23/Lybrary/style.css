@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+}
+body{
+  background: url(./Kniga-sudeb.jpg) bottom no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+header{
+  background-color: rgba(60, 69, 67, 0.6);
+  height: 150px;
+  margin-bottom: 10px;
+}
+.logo{
+  color: white;
+  font-size: 100px;
+  padding-left: 25px ;
+}
+main{
+  min-height: 400px;
+  height: auto;
+  background-color: rgba(60, 69, 67, 0.6);
+  margin-bottom: 10px;
+  padding-top: 15px;
+}
+/* .conteiner{
+  margin-left: auto;
+  margin-right: auto;
+} */
+#wrap {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer{
+  background-color: rgba(60, 69, 67, 0.6);
+  position: relative;
+  width: auto;
+  height: 150px;
+}
+table {
+  width: 80%; 
+  border-collapse: collapse; 
+  margin-left: auto;
+  margin-right: auto;
+}
+table thead tr {
+  color: #ffffff;
+  font-weight: bold;
+  background: #00bf80;
+  }
+table thead tr td {
+  border: 1px solid #01ab73;
+}
+table tbody tr td {
+  border: 1px solid #4a4a4b;
+  background-color: rgba(255, 255, 255, 0.724);
+}
+table tbody tr:nth-child(2n) {
+  background: #f4f4f4
+  ;}
+table tbody tr:hover {
+  background: #ebffe8
+}

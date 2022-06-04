@@ -30,24 +30,29 @@ class Company {
         return index >= 0;
     }
 
-    maxAge(){
-        return this._employees.reduce((max, p) => p.age > max ? p.age : max, this.employees[0].age);
+     maxAge(){
+        if(this._employees.length !== 0) return this._employees.reduce((max, p) => p.age > max ? p.age : max, this.employees[0].age);
+        else return 0;
     }
 
     minAge(){
-        return this._employees.reduce((min, p) => p.age < min ? p.age : min, this.employees[0].age);
+        if(this._employees.length !== 0)return this._employees.reduce((min, p) => p.age < min ? p.age : min, this.employees[0].age);
+        else return 0;
     }
 
     averageAge(){
-        return this._employees.reduce((accum, p) => accum + p.age, 0) / this.employees.length;
+        if(this._employees.length !== 0)return this._employees.reduce((accum, p) => accum + p.age, 0) / this.employees.length;
+        else return 0;
     }
 
     averageSalary(){
-        return this._employees.reduce((accum, p) => accum + p.salary, 0) / this.employees.length;
+        if(this._employees.length !== 0)return this._employees.reduce((accum, p) => accum + p.salary, 0) / this.employees.length;
+        else return 0;
     }
 
     totalSalary(){
-        return this._employees.reduce((accum, p) => accum + p.salary, 0);
+        if(this._employees.length !== 0)return this._employees.reduce((accum, p) => accum + p.salary, 0);
+        else return 0;
     }
 
 }

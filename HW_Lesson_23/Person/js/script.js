@@ -6,7 +6,8 @@ addEventListener("keydown", (e) => {
 });
 //Event Mouse
 addEventListener("click", (e) => {
-  if (e.target === addPerson) addPersons();
+  if (e.target === addPerson) {addPersons();}
+  // if (e.target === calcStats) printStats();
 });
 //Add Persons
 function addPersons() {

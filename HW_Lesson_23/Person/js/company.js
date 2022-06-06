@@ -30,7 +30,7 @@ class Company {
         return index >= 0;
     }
 
-     maxAge(){
+    maxAge(){
         if(this._employees.length !== 0) return this._employees.reduce((max, p) => p.age > max ? p.age : max, this.employees[0].age);
         else return 0;
     }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/style.css" rel="stylesheet">
     <title>Persons</title>
-    <script src="./js/person.js" defer></script> 
+    <script src="./js/Person.js" defer></script> 
     <script src="./js/employee.js" defer></script> 
     <script src="./js/company.js" defer></script> 
     <script src="./js/script.js" defer></script> 
@@ -21,24 +21,35 @@
 <body>
     <main>
     <div class="input-group">
-        
+          <div class="item">
             <input type="text" id="personId" required class="input">
-            <label for="personId" class="label-id input-label">ID Number</label>
-        
+            <label for="personId" class="label">ID Number</label>
+          </div>
+
+          <div class="item">
             <input type="text" id="firstName" required class="input">
-            <label for="firstName" class="label-first input-label">First Name</label>
-        
+            <label for="firstName" class="label">First Name</label>
+          </div>
+
+          <div class="item">
             <input type="text" id="lastName" required class="input">
-            <label for="lastName" class="label-last input-label">Last Name</label>
-        
+            <label for="lastName" class="label">Last Name</label>
+          </div>
+
+          <div class="item">
             <input type="date" id="age" required class="input">
-            <label for="age" class="label-age input-labal input-label">Age</label>
-        
+            <label for="age" class="label">Age</label>
+          </div>
+
+        <div class="item">
             <input id="salary" type="number" min="0" required class="input">
-            <label for="salary" class="label-sal input-label">Salary</label>
+            <label for="salary" class="label">Salary</label>
+        </div>
+        <div class="item">
                 <button id="addPerson">Add person</button>
+        </div>
         
-    </>
+    </div>
     
     <div>
         <h2>Stats</h2>

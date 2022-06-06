@@ -8,7 +8,7 @@ header {
     margin-bottom: 10px;
   }
 
-table {width: auto; border-collapse: separate; border-spacing: 4px;}
+table {width: auto; border-collapse: separate;}
 table thead tr {color: #ffffff; font-weight: bold;}
 table thead tr td {border-radius: 4px 4px 0 0; background: #2e82c3; width: 130px;}
 table tbody tr td {border: 1px solid #2e82c3; border-radius: 4px; background: #cbdfef;}
@@ -16,11 +16,16 @@ table tbody tr td:hover {background: #a2c3dd; transition-duration: 0.2s;}
 table tfoot tr td {border-radius: 0 0 4px 4px; background: #2e82c3; height: 18px;}
 
 .input-group {
-     position: relative;
+  border: 1px solid #555;
+  padding-top:15px ;
+  display : flex;
+  flex-direction: row;
+  width:100%;
+
      }
 .input{
-    padding: 10px;
-    margin: 10px 10px;
+    padding: 5px;
+    margin: 5px 5px;
     border: none;
     border-radius: 4px;
     font: inherit;
@@ -28,40 +33,25 @@ table tfoot tr td {border-radius: 0 0 4px 4px; background: #2e82c3; height: 18px
     background-color: transparent;
     outline: 2px solid rgb(5, 5, 5);
 }
-.input-label{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    transform-origin: left;
-    transition: transform .25s;
+.item{
+  display: inherit;
+  width: auto;
 }
 
-.label-id{transform: translate(10px, 10px);}
-.label-first{transform: translate(250px, 10px);}
-.label-last{transform: translate(490px, 10px);}
-.label-age{transform: translate(725px, 10px);}
-.label-sal{transform: translate(885px, 10px);}
+ .label{
+   transform: translate(10px, 10px);
+   width: auto;
+   position: absolute;
+}
 
-.input:focus+.label-id,
-.input:valid+.label-id{transform: translate(0,-20px) scale(.8);}
+.input:focus+.label,
+input:valid+.label{transform: translate(5px,-20px) scale(.8);}
 
-.input:focus+.label-first,
-.input:valid+.label-first{transform: translate(240px,-20px) scale(.8);}
-
-.input:focus+.label-last,
-.input:valid+.label-last{transform: translate(480px,-20px) scale(.8);}
-
-.input:focus+.label-age,
-.input:valid+.label-age{transform: translate(715px,-20px) scale(.8);}
-
-.input:focus+.label-sal,
-.input:valid+.label-sal{transform: translate(880px,-20px) scale(.8);}
-
-.input:focus+.input-label,
-.input:valid+.input-label{
+.input:focus+.label,
+.input:valid+.label{
     color: #6c6680;
     font-size:larger
-}
+} 
 .input:is(:focus, :valid){
     outline-color:#d1c5fc ;
     color: black;
@@ -92,11 +82,8 @@ main {
   button {
     width: 130px;
     height: 40px;
-    color: #fff;
     border-radius: 5px;
     padding: 10px 25px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;

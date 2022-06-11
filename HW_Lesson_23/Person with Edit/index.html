@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css" />
+    <link href="./css/modal.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+
+    <title>Persons</title>
+    <script src="./js/Person.js" defer></script>
+    <script src="./js/employee.js" defer></script>
+    <script src="./js/company.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </head>
+  <header></header>
+  <nav></nav>
+  <body>
+    <main>
+      <div class="input-group">
+        <div class="item">
+          <input type="text" id="personId" required class="input" />
+          <label for="personId" class="label">ID Number</label>
+        </div>
+
+        <div class="item">
+          <input type="text" id="firstName" required class="input" />
+          <label for="firstName" class="label">First Name</label>
+        </div>
+
+        <div class="item">
+          <input type="text" id="lastName" required class="input" />
+          <label for="lastName" class="label">Last Name</label>
+        </div>
+
+        <div class="item">
+          <input type="date" id="age" required class="input" />
+          <label for="age" class="label">Age</label>
+        </div>
+
+        <div class="item">
+          <input id="salary" type="number" min="0" required class="input" />
+          <label for="salary" class="label">Salary</label>
+        </div>
+        <div class="item">
+          <button id="addPerson">Add person</button>
+        </div>
+      </div>
+
+      <div>
+        <h2>Stats</h2>
+        <table>
+          <thead>
+            <tr>
+              <td>MAX Age</td>
+              <td>MIN Age</td>
+              <td>Average Age</td>
+              <td>Average Salary</td>
+              <td>Total Salary</td>
+            </tr>
+          </thead>
+          <tbody id="stats"></tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div>
+        <h2>Persons</h2>
+        <!-- <ol id="personsList"></ol> -->
+        <table>
+          <thead>
+            <tr>
+              <td>ID Number</td>
+              <td>First Name</td>
+              <td>Last Name</td>
+              <td>Age</td>
+              <td>salary</td>
+            </tr>
+          </thead>
+          <tbody id="personsList"></tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </main>
+    <div class="modal-wrapper">
+      <div class="modal">
+        <i class="fa fa-times close-icon"></i>
+        <div class="item">
+          <input id="editId" type="number" min="0" required class="input" />
+          <label for="editId" class="edit">ID</label>
+        </div>
+        <div class="item">
+          <input id="editFirst" type="text" min="0" required class="input" />
+          <label for="editFirst" class="edit">First Name</label>
+        </div>
+        <div class="item">
+          <input id="editLast" type="text" min="0" required class="input" />
+          <label for="editLast" class="edit">Last Name</label>
+        </div>
+        <div class="item">
+          <input id="editAge" type="date" min="0" required class="input" />
+          <label for="editAge" class="edit">Age</label>
+        </div>
+        <div class="item">
+          <input id="editSalary" type="number" min="0" required class="input" />
+          <label for="editSalary" class="edit">Salary</label>
+        </div>
+        <button class="submit-button">Submit</button>
+      </div>
+    </div>
+  </body>
+  <footer></footer>
+</html>

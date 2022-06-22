@@ -1,5 +1,5 @@
 // const code = codeApi.value.trim();
-const code = "1492f2b94bf5637e8e28f14d901df2e7";
+//const code = "1492f2b94bf5637e8e28f14d901df2e7";
 
 // Create List For Selector
 fetch(`http://data.fixer.io/api/symbols?access_key=${code}`)
@@ -44,11 +44,6 @@ fetch(`http://data.fixer.io/api/latest?access_key=${code}`)
     document.body.appendChild(h1);
   });
 
-//Calculation Money
-function resMoney(resIn, resTo) {
-  const res = resIn / resTo;
-  return res * changeOne.value.trim();
-}
 //Work whit all input
 function textPut(abjArr) {
   let resIn, resTo;
@@ -75,6 +70,12 @@ function textPut(abjArr) {
   });
 }
 
+//Calculation Money
+function resMoney(resIn, resTo) {
+  const res = resIn / resTo;
+  return res * changeOne.value.trim();
+}
+
 //Create To Selector Element HTML
 function myFunction(id, abjArr) {
   abjArr.forEach(([key, value]) => {
@@ -94,6 +95,7 @@ function createInfoElement(content, tag) {
   return element;
 }
 
+//Delete Elements HTML
 function delStats() {
   if (textIn.firstElementChild) {
     textIn.removeChild(textIn.firstElementChild);

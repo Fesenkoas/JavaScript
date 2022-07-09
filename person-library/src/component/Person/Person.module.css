@@ -1,0 +1,133 @@
+* {margin: 0;}
+.header {
+    height: 200px;
+    background-image: url("../../images/salary.jpg");
+    background-position: center;
+    background-size: cover;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+  }
+
+table {width: auto; border-collapse: separate;}
+table thead tr {color: #ffffff; font-weight: bold;}
+table thead tr td {border-radius: 4px 4px 0 0; background: #2e82c3; width: 130px;}
+table tbody tr td {border: 1px solid #2e82c3; border-radius: 4px; background: #cbdfef;}
+table tbody tr td:hover {background: #a2c3dd; transition-duration: 0.2s;}
+table tfoot tr td {border-radius: 0 0 4px 4px; background: #2e82c3; height: 18px;}
+
+.input_group {
+  border: 1px solid #555;
+  padding-top:15px ;
+  display : flex;
+  flex-direction: row;
+  width:100%;
+
+     }
+.input{
+    padding: 5px;
+    margin: 5px 5px;
+    border: none;
+    border-radius: 4px;
+    font: inherit;
+    color: rgb(255, 254, 254);
+    background-color: transparent;
+    outline: 2px solid rgb(5, 5, 5);
+}
+.item{
+  display: inherit;
+  width: auto;
+}
+
+ .label{
+   transform: translate(10px, 10px);
+   width: auto;
+   position: absolute;
+}
+
+.input:focus+.label,
+input:valid+.label{transform: translate(5px,-20px) scale(.8);}
+
+.input:focus+.label,
+.input:valid+.label{
+    color: #6c6680;
+    font-size:larger
+} 
+.input:is(:focus, :valid){
+    outline-color:#d1c5fc ;
+    color: black;
+}
+
+
+.footer{
+    width: 100%;
+    height: 50px;
+    background: #2e82c3;
+}
+
+.main {
+    margin: 15px auto;
+  }
+
+.nav {
+    background-color:#2e82c3;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+  }
+
+.link{
+  padding: 10px;
+}
+ 
+/* Buttom */
+
+.addPerson{
+    margin: 10px 10px;
+}
+.addPerson {
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+  .addPerson:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px rgba(243, 7, 7, 0.635),
+     4px 4px 5px 0px rgba(236, 36, 36, 0.067);
+    transition: all 0.3s ease;
+  }
+  .addPerson {
+    border: none;
+    color: #000;
+  }
+  .addPerson:hover {
+    color: #000;
+  }
+  .addPerson:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  .addPerson:active  {
+    top: 2px;
+  }

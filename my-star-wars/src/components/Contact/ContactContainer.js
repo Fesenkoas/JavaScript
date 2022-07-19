@@ -9,23 +9,22 @@ export default class ContactContainer extends Component {
       
         this.state = {
           isLoading:true,
-          user:[],
-          imgUrl:''
+          planets:[{name:'Loading.........'}],
         }
       }
       componentDidMount(){
           fetch(`${base_url}/v1/planets`)
           .then(response => response.json())
           .then(data =>this.setState({
-              user:data, 
-              imgUrl:`${base_url}/${data.image}`,
+              planets:data, 
               isLoading:false}
               ))
         }
   render() {
     return (
       <div>
-        <Contact/>
+        {this.state.isLoading?<Contact planets={this.state.planets}/>:<Contact planets={this.state.planets}/>}
+        <Contact planets={this.state.planets}/>
       </div>
     )
   }

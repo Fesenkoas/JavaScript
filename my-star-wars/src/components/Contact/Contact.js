@@ -1,7 +1,8 @@
 import React from 'react'
 import s from '../../css_module/Contact.module.css'
 
-const Contact = () => {
+
+const Contact = ({planets}) => {
   return (
     <div className={s.container}>
 <div>
@@ -15,9 +16,12 @@ const Contact = () => {
     <div className={s.select}>
     <label htmlFor='country'>Country</label>
     <select id="country" name="country">
-      <option value="australia">Australia</option>
+      {/* <option value="australia">Australia</option>
       <option value="canada">Canada</option>
-      <option value="usa">USA</option>
+      <option value="usa">USA</option> */}
+      {planets.map((item, key) => (
+        <option value={key}>{item.name}</option>
+      ))}
     </select>
     </div>
     <div className={s.textarea}>

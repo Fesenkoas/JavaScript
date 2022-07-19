@@ -22,10 +22,9 @@ export default class ContactContainer extends Component {
         }
   render() {
     return (
-      <div>
+      <>
         {this.state.isLoading?<Contact planets={this.state.planets}/>:<Contact planets={this.state.planets}/>}
-        <Contact planets={this.state.planets}/>
-      </div>
+      </>
     )
   }
 }

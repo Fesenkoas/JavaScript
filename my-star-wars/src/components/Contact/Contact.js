@@ -16,9 +16,6 @@ const Contact = ({planets}) => {
     <div className={s.select}>
     <label htmlFor='country'>Country</label>
     <select id="country" name="country">
-      {/* <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option> */}
       {planets.map((item, key) => (
         <option value={key}>{item.name}</option>
       ))}

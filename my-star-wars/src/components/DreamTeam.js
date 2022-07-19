@@ -5,7 +5,6 @@ import Friends from './Freands'
 const DreamTeam = ({cPhoto,change}) => {
     
    const photoArr = () =>{
-    console.log(cPhoto);
     if(cPhoto === null){
         
        return friends.map((item, index) => <Friends change={change} key={index} photo={item} number={index+1} bool={false}/>)

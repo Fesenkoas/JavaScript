@@ -1,0 +1,30 @@
+
+.wrapper{
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.large{
+  width: 400px;
+  height: 400px;
+}
+.small{
+  width: 200px;
+  height: 200px;
+}
+
+.red{
+  background-color: red;
+}
+
+.green{
+  background-color: green;
+}
+
+.blue{
+background-color: blue;
+}
+
+.yellow{
+  background-color: yellow;
+}

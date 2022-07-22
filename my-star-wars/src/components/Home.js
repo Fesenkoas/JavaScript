@@ -1,6 +1,6 @@
 import React from 'react'
 import DreamTeam from './DreamTeam';
-import FarGalaxy from './FarGalaxy';
+import FarGalaxyContainer from './FarGalaxy/FarGalaxyContainer';
 import Hero from './Hero';
 
 const Home = ({cPhoto, change}) => {
@@ -8,7 +8,7 @@ const Home = ({cPhoto, change}) => {
     <main className="clearfix">
             <Hero />
             <DreamTeam cPhoto={cPhoto} change={change}/>
-            <FarGalaxy />
+            <FarGalaxyContainer />
         </main>
   )
 }

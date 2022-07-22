@@ -12,18 +12,26 @@ export default class ContactContainer extends Component {
           planets:[{name:'Loading.........'}],
         }
       }
-      componentDidMount(){
-          fetch(`${base_url}/v1/planets`)
+      fillPlanets(url) {
+        fetch(url)
           .then(response => response.json())
           .then(data =>this.setState({
               planets:data, 
               isLoading:false}
-              ))
-        }
+              ));
+      }
+    
+      componentDidMount() {
+        this.fillPlanets(`${base_url}/v1/planets`);
+      }
+
+      componentWillUnmount(){
+        console.log("Component Contact");
+    }
   render() {
     return (
       <>
-        {this.state.isLoading?<Contact planets={this.state.planets}/>:<Contact planets={this.state.planets}/>}
+       <Contact planets={this.state.planets}/>
       </>
     )
   }

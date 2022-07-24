@@ -45,7 +45,6 @@ export default class AboutContainer extends Component{
             imgUrl:`${base_url}/${data.image}`,
             isLoading:false}
             )
-          
             localStorage.setItem("edited", `${date.getDate()} ${date.getMonth()+2} ${date.getFullYear()}`);
             localStorage.setItem("name", this.state.user.name);
             localStorage.setItem("gender", this.state.user.gender);

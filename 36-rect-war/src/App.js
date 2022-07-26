@@ -34,6 +34,8 @@ class App extends React.Component {
     this.setState({ count: zero });
     this.setState({ countCPU: zero });
     this.setState({ countUser: zero });
+    const arrCards = [...this.state.cardCPU,...this.state.cardUser];
+    this.sortCards(arrCards);
   };
   getCount = (count) => {
     this.setState({ count });

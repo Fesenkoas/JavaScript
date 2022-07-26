@@ -21,7 +21,7 @@ const Game = ({huWin,getCount ,length, changePage, text,cpu, user, count}) => {
         Computer
         <div>
             <div className={style.cards}>
-                <p>{cpu[count]} {count}</p>
+                <p>{cpu[count]}</p>
             </div>
             <div className={style.cards}>
                 <p>{user[count]}</p>
@@ -29,6 +29,7 @@ const Game = ({huWin,getCount ,length, changePage, text,cpu, user, count}) => {
         </div>
         <div>
             <button onClick={handleClick}>Next</button>
+            {count}
         </div>
       {text}
       </>

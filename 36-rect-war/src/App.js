@@ -44,7 +44,15 @@ class App extends React.Component {
   changePage = (current) => {
     this.setState({ current });
   };
+sortCards =(arrCards)=>{
+  for (let i = arrCards.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [arrCards[i], arrCards[j]] = [arrCards[j], arrCards[i]];
+  }
 
+  this.setState({cardCPU:arrCards.slice(0,26)});
+  this.setState({cardUser:arrCards.slice(26,52)});
+}
   componentDidMount() {
     const arrCards = [];
 
@@ -53,15 +61,9 @@ class App extends React.Component {
           arrCards.push(y);
         }
       }
-
-    for (let i = arrCards.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [arrCards[i], arrCards[j]] = [arrCards[j], arrCards[i]];
+    this.sortCards(arrCards);
+  
     }
-
-    this.setState({cardCPU:arrCards.slice(0,26)});
-    this.setState({cardUser:arrCards.slice(26,52)});
-  }
 
   render() {
     switch (this.state.current) {

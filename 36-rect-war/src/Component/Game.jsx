@@ -13,10 +13,11 @@ const Game = ({
   const handleClick = () => {
     if (count < length - 1) {
       count++;
+      huWin(count);
       getCount(count);
       changePage("Game");
     } else {
-      huWin();
+
       changePage("Result");
     }
   };

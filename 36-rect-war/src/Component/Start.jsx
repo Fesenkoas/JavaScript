@@ -7,7 +7,7 @@ const Start = ({getInput,changePage}) => {
       };
     
     const  handleChangeName = (e) => {
-        name = e.target.value
+        name = e.target.value;
       };
       
     return (

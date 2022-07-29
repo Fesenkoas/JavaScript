@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      
       current: "Start",
       cardCPU: [null],
       cardUser: [null],
@@ -17,17 +18,13 @@ class App extends React.Component {
       countUser: 0,
     };
   }
-  huWin = () => {
-    let cpu = 0;
-    let user = 0;
-    for (let i = 0; i <= 25; i++) {
-      if (this.state.cardCPU[i] > this.state.cardUser[i]) {
-        cpu++;
-        this.setState({ countCPU: cpu });
-      } else {
-        user++;
-        this.setState({ countUser: user });
-      }
+  huWin = (count) => {
+    
+    if (this.state.cardCPU[count] > this.state.cardUser[count]) {
+      this.state.countCPU ++;
+    } 
+    if (this.state.cardCPU[count] < this.state.cardUser[count]) {
+      this.state.countUser ++;
     }
   };
   emptyCount = (zero) => {
@@ -98,3 +95,9 @@ sortCards =(arrCards)=>{
 }
 
 export default App;
+
+
+      // spade
+      // clubs
+      // diamond
+      // heart

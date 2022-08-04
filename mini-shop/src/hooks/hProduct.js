@@ -21,16 +21,6 @@ setProducts(prev =>[...prev,product])
       setLoading(false);
     }
   }
-  useEffect(
-    () => {
-      fetchProducts();
-      //return () => {
-      //unmount
-     // };
-    },
-    [
-      //update(setState())
-    ]
-  );
+  useEffect(() => {fetchProducts();}, []);
   return { products, loading, error, addProduct };
 }

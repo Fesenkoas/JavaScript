@@ -20,7 +20,7 @@ const CreateProduct = ({ onCreate }) => {
     const res = await fetch("https://fakestoreapi.com/products", {
       method: "POST",
       body: JSON.stringify({
-        title: value,
+        title: "value",
         price: 13.5,
         description: "lorem ipsum set",
         image: "https://i.pravatar.cc",

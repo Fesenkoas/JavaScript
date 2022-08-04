@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Avatar from './components/Avatar';
 import Body from './components/Body';
 import Nav from './components/Nav';
 import { TwitterContext } from './utils/context';
@@ -41,7 +42,9 @@ class App extends React.Component {
           user: this.state.user,
           changeAvatar: this.changeAvatar
         }}>
-          <Nav />
+          <Nav> 
+            <Avatar/>
+          </Nav>
           <Body />
         </TwitterContext.Provider>
       </div>

@@ -2,7 +2,7 @@ import './Result.module.css'
 const  Result = ({emptyCount,changePage,countCPU, countUser}) => {
 
     const handleClick = () => {
-        emptyCount(0);
+        emptyCount();
         changePage('Game');
     }
     

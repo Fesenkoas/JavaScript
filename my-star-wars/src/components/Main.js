@@ -5,7 +5,7 @@ import StarWars from "./StarWars/StarWars";
 import Home from './Home'
 import ContactContainer from "./Contact/ContactContainer";
 
-const Main = ({current, cPhoto, change}) => {
+const Main = ({current}) => {
   
 
     switch (current) {
@@ -15,7 +15,7 @@ const Main = ({current, cPhoto, change}) => {
         return <StarWars/>;
       case navItems[3]:
         return <ContactContainer />;
-        default: return <Home cPhoto={cPhoto} change={change}/>
+        default: return <Home/>
     }
 
 }

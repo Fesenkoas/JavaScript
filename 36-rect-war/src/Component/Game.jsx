@@ -1,15 +1,7 @@
 import style from "./Game.module.css";
 
-const Game = ({
-  huWin,
-  getCount,
-  length,
-  changePage,
-  text,
-  cpu,
-  user,
-  count,
-}) => {
+const Game = ({huWin,getCount,length,changePage,text,cpu,user,count,}) => {
+  
   const handleClick = () => {
     if (count < length - 1) {
       count++;

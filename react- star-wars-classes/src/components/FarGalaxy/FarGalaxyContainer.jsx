@@ -1,41 +1,38 @@
-import React, { Component } from 'react'
 import FarGalaxy from './FarGalaxy'
 import {base_url} from '../../utils/constants'
 import Preloader from '../common/Preloader/Preloader'
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-export default class FarGalaxyContainer extends Component {
-    constructor(props) {
-        super(props)
-      
-        this.state = {
-            isLoading:true,
-            openingCrawl:'',
-            date:''
-        }
-      }
-      componentDidMount(){
+const FarGalaxyContainer = () =>{
+   
+    const[isLoading, setIsLoading] = useState(true)
+    const[openingCrawl, setOpeningCrawl] = useState('')
+    
+     useEffect ( () =>{
           const text = sessionStorage.getItem('opening_crawl')
           if(text){
-              this.setState({openingCrawl:text, isLoading:false});
+              setOpeningCrawl(text)
+              setIsLoading(false)
           }else{
           const episode = Math.floor(1 + Math.random()*6);
           fetch(`${base_url}/v1/films/${episode}`)
           .then(response =>response.json())
           .then(data => {
-              this.setState({openingCrawl:data.opening_crawl, isLoading:false})
+              
+              setOpeningCrawl(data.opening_crawl)
+              setIsLoading(false)
               sessionStorage.setItem('opening_crawl', data.opening_crawl)
           });
           }
-      }
-      componentWillUnmount(){
-        
-        console.log("FarGalaxy componentWillUnmount");
-    }
-  render() {
+      },[])
+ 
     return (
       <>
-        {this.state.isLoading?<Preloader/>:<FarGalaxy openingCrawl={this.state.openingCrawl}/>}
+        {isLoading?<Preloader/>:<FarGalaxy openingCrawl={openingCrawl}/>}
       </>
     )
-  }
 }
+
+
+export default  FarGalaxyContainer;

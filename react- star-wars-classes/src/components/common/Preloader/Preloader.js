@@ -1,6 +1,6 @@
 import louder from '../../../Images/Spin.gif'
 
-const Preloader = (props) => {
+const Preloader = () => {
 return <div style={{textAlign:"center"}}>
  <img src={louder} style={{width:'100px'}} alt='#'/>
  </div>

@@ -17,7 +17,7 @@ const AboutContainer = () => {
 
     if (dateOld >= current) {
       //if the date is greater than the current one, then we take it from the locale
-      console.log("Old");
+     
       const oldData = {
         name: localStorage.getItem("name"),
         gender: localStorage.getItem("gender"),
@@ -34,7 +34,7 @@ const AboutContainer = () => {
       setIsLoading(false);
     } else {
       //if the date is less than or equal to the local one, then we take it from the local
-      console.log("update");
+     
       fetch(`${base_url}/v1/peoples/1`)
         .then((response) => response.json())
         .then((data) => {
@@ -60,7 +60,9 @@ const AboutContainer = () => {
   }, []);
 
   return (
-    <>{isLoading ? <Preloader /> : <AboutMe User={user} imgUrl={imgUrl} />}</>
+    <>
+    {isLoading ? <Preloader /> : <AboutMe User={user} imgUrl={imgUrl} />}
+    </>
   );
 };
 

@@ -30,21 +30,21 @@ export default class ContactContainer extends Component {
         const current = `${date.getDate()} ${date.getMonth()+1} ${date.getFullYear()}`;
      
         if(test && dateOld >= current ){//if the date is greater than the current one, then we take it from the locale
-          console.log("Old Contact");
+          
           this.setState({
             planets:JSON.parse(localStorage.getItem("planets")), 
             isLoading:false}
             );
   
         }else{ //if the date is less than or equal to the local one, then we take it from the local
-          console.log("update Contact");
+         
           this.fillPlanets(`${base_url}/v1/planets`);
           localStorage.setItem("edited", `${date.getDate()} ${date.getMonth()+2} ${date.getFullYear()}`);
           }
          }
 
       componentWillUnmount(){
-        console.log("WillUnmount Component Contact");
+        
       //localStorage.clear();
     }
   render() {

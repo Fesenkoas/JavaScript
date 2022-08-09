@@ -25,10 +25,11 @@ export default class ContactContainer extends Component {
       componentDidMount() {
         
         const dateOld = localStorage.getItem('edited')
+        const test = localStorage.getItem("planets")
         const date = new Date();
         const current = `${date.getDate()} ${date.getMonth()+1} ${date.getFullYear()}`;
-        
-        if(dateOld >= current ){//if the date is greater than the current one, then we take it from the locale
+     
+        if(test && dateOld >= current ){//if the date is greater than the current one, then we take it from the locale
           console.log("Old Contact");
           this.setState({
             planets:JSON.parse(localStorage.getItem("planets")), 
@@ -43,7 +44,8 @@ export default class ContactContainer extends Component {
          }
 
       componentWillUnmount(){
-        console.log("Component Contact");
+        console.log("WillUnmount Component Contact");
+      //localStorage.clear();
     }
   render() {
     return (

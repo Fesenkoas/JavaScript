@@ -2,6 +2,7 @@ import React from 'react'
 import s from '../css_module/borderRound.module.css'
 
 const Friends = ({photo, number,change,bool}) => {
+  
     let friendStyle = 'col-4 p-1 ';
     if(number === 7){
         friendStyle += s.bottomLeft;

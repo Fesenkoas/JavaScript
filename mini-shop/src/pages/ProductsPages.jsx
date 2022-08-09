@@ -23,7 +23,7 @@ const ProductsPages = () => {
           {loading && <Loading/>}
           {error && <Error error={error} /> }
           {products.map(product =><Product product={product} key={product.id}/>)}
-          {modal&&<Modal title="Create new product" onClose={close}>
+          {modal && <Modal title="Create new product" onClose={close}>
             <CreateProduct onCreate={createHandle}/>
           </Modal>}
           <button className={s.sButton} onClick={open}>+</button>

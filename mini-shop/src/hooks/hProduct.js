@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 export function useProducts() {
+  
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

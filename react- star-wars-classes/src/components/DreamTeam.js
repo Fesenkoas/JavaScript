@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StarWarsContext } from "../util/context";
 import { friends } from "../utils/constants";
 import Friends from "./Freands";
 
 const DreamTeam = () => {
-
+    const {photo, handelClick} = useContext(StarWarsContext)
+    
      const photoArr = (photo, handelClick) =>{
       if(photo === null){
 
@@ -16,9 +17,7 @@ const DreamTeam = () => {
   return (
     <section className="float-end w-50 mx-1 row border">
       <h2 className="col-12 text-center">Dream Team</h2>
-      <StarWarsContext.Consumer>
-        {({ photo, handelClick }) => ( photoArr(photo, handelClick) )}
-      </StarWarsContext.Consumer>
+        {photoArr(photo, handelClick)}
     </section>
   );
 };

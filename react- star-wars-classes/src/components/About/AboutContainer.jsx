@@ -24,15 +24,15 @@ const AboutContainer = () => {
 
   useEffect(() => {
     const dateOld = localStorage.getItem("edited");
-    const oldUser = localStorage.getItem("user")
+    const oldUser = JSON.parse(localStorage.getItem("user"))
     const date = new Date();
     const current = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
-
+  
     if (oldUser && dateOld >= current) {
       //if the date is greater than the current one, then we take it from the locale
 
-      setUser(JSON.parse(localStorage.getItem("user")));
-      setImgUrl(`${base_url}/${user.image}`);
+      setUser(oldUser);
+      setImgUrl(`${base_url}/${oldUser.image}`);
       setIsLoading(false);
 
     } else {

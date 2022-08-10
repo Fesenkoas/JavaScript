@@ -28,14 +28,10 @@ const AboutContainer = () => {
     const date = new Date();
     const current = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
 
-    console.log(JSON.parse(oldUser));
-
     if (oldUser && dateOld >= current) {
       //if the date is greater than the current one, then we take it from the locale
 
-      console.log('old');
-
-      setUser(JSON.parse(oldUser));
+      setUser(JSON.parse(localStorage.getItem("user")));
       setImgUrl(`${base_url}/${user.image}`);
       setIsLoading(false);
 

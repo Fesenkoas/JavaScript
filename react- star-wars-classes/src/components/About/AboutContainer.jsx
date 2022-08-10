@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { base_url } from "../../utils/constants";
 import Preloader from "../common/Preloader/Preloader";
 import AboutMe from "./AboutMe";
-import { myFetch } from './../../utils/constants';
+import { myFetch } from "./../../utils/constants";
 
 const AboutContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,30 +11,32 @@ const AboutContainer = () => {
 
   useEffect(() => {
     const dateOld = localStorage.getItem("edited");
-    const oldUser = JSON.parse(localStorage.getItem("user"))
+    const oldUser = JSON.parse(localStorage.getItem("user"));
     const date = new Date();
-    const current = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
-  
+    const current = `${date.getDate()} ${
+      date.getMonth() + 1
+    } ${date.getFullYear()}`;
+
     if (oldUser && dateOld >= current) {
       //if the date is greater than the current one, then we take it from the locale
 
       setUser(oldUser);
       setImgUrl(`${base_url}/${oldUser.image}`);
       setIsLoading(false);
-
     } else {
       //if the date is less than or equal to the local one, then we take it from the local
-      //fillUser(`${base_url}/v1/peoples/1`);
-        myFetch(`${base_url}/v1/peoples/1`)
-        .then((data) =>
-        {setUser(data);
+      
+      myFetch(`${base_url}/v1/peoples/1`).then((data) => {
+        setUser(data);
         setImgUrl(`${base_url}/${data.image}`);
         setIsLoading(false);
-        localStorage.setItem("user",  JSON.stringify(data));
+        localStorage.setItem("user", JSON.stringify(data));
         localStorage.setItem("image", JSON.stringify(imgUrl));
-        localStorage.setItem("edited", `${date.getDate()} ${date.getMonth() + 2} ${date.getFullYear()}`);}
-        )
-        
+        localStorage.setItem(
+          "edited",
+          `${date.getDate()} ${date.getMonth() + 2} ${date.getFullYear()}`
+        );
+      });
     }
   }, []);
 
@@ -44,11 +46,8 @@ const AboutContainer = () => {
   // }},[])
 
   return (
-    <>
-    {isLoading ? <Preloader /> : <AboutMe User={user} imgUrl={imgUrl} />}
-    </>
+    <>{isLoading ? <Preloader /> : <AboutMe User={user} imgUrl={imgUrl} />}</>
   );
 };
 
 export default AboutContainer;
-

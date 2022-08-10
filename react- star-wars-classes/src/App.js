@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Main from "./components/Main";
 import { navItems } from "./utils/constants";
 import { StarWarsContext } from "./util/context";
@@ -27,6 +27,7 @@ const App = () => {
       <StarWarsContext.Provider value={{ setCurrent, handelClick, photo }}>
         <Header />
         <Main current={current} />
+        <Footer/>
       </StarWarsContext.Provider>
     </div>
   );

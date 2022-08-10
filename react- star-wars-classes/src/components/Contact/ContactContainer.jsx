@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 
 const ContactContainer = () =>{
    
-    const [isLoading, setIsLoading] = useState(true);
     const [planets, setPlanets] = useState([{name:'Loading.........'}]);
     
       const fillPlanets = (url) => {
@@ -14,7 +13,6 @@ const ContactContainer = () =>{
           .then(response => response.json())
           .then(data =>{
              setPlanets(data)
-             setIsLoading(false)
             localStorage.setItem("planets", JSON.stringify(planets) );
           });
         
@@ -30,7 +28,6 @@ const ContactContainer = () =>{
         if(test && dateOld >= current ){//if the date is greater than the current one, then we take it from the locale
           
             setPlanets(JSON.parse(localStorage.getItem("planets"))) 
-            setIsLoading(false)
   
         }else{ //if the date is less than or equal to the local one, then we take it from the local
          

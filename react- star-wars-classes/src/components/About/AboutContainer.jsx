@@ -2,25 +2,12 @@ import { useEffect, useState } from "react";
 import { base_url } from "../../utils/constants";
 import Preloader from "../common/Preloader/Preloader";
 import AboutMe from "./AboutMe";
+import { myFetch } from './../../utils/constants';
 
 const AboutContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
   const [imgUrl, setImgUrl] = useState("");
-
-  const fillUser = (url) => {
-    fetch(url)
-      .then(response => response.json())
-      .then(data =>{
-        setUser(data);
-        setImgUrl(`${base_url}/${data.image}`);
-        setIsLoading(false);
-        localStorage.setItem("user",  JSON.stringify(data));
-        localStorage.setItem("image", JSON.stringify(imgUrl));
-      });
-    
-  }
-
 
   useEffect(() => {
     const dateOld = localStorage.getItem("edited");
@@ -37,8 +24,17 @@ const AboutContainer = () => {
 
     } else {
       //if the date is less than or equal to the local one, then we take it from the local
-      fillUser(`${base_url}/v1/peoples/1`);
-      localStorage.setItem("edited", `${date.getDate()} ${date.getMonth() + 2} ${date.getFullYear()}`);
+      //fillUser(`${base_url}/v1/peoples/1`);
+        myFetch(`${base_url}/v1/peoples/1`)
+        .then((data) =>
+        {setUser(data);
+        setImgUrl(`${base_url}/${data.image}`);
+        setIsLoading(false);
+        localStorage.setItem("user",  JSON.stringify(data));
+        localStorage.setItem("image", JSON.stringify(imgUrl));
+        localStorage.setItem("edited", `${date.getDate()} ${date.getMonth() + 2} ${date.getFullYear()}`);}
+        )
+        
     }
   }, []);
 

@@ -23,8 +23,10 @@ The original film (Star Wars), retroactively subtitled Episode IV: A New Hope (1
 All nine films of the "Skywalker Saga" were nominated for Academy Awards, with wins going to the first two releases. Together with the theatrical live action "anthology" films Rogue One (2016) and Solo (2018), the combined box office revenue of the films equated to over US$10 billion, which makes it the second-highest-grossing film franchise of all time.[3][4] Additional upcoming films are in the works, including an untitled movie from Taika Waititi planned for 2023 and Rogue Squadron directed by Patty Jenkins, which currently does not have a release date.`
 
 
-
-
+  export const myFetch = async (url) => {
+    const response = await fetch(url);
+    return await response.json();
+  }
 
 
 

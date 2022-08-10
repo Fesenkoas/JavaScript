@@ -12,9 +12,6 @@ const App = () => {
   const [zoom, setZoom] = useState(false);
   const [photo, setPhoto] = useState(null);
 
-  const changePage = (current) => {
-    setCurrent(current);
-  };
   const handelClick = (photo) => {
     if (zoom) {
       setPhoto(null );
@@ -27,7 +24,7 @@ const App = () => {
 
   return (
     <div className="container-fluid">
-      <StarWarsContext.Provider value={{ changePage, handelClick, photo }}>
+      <StarWarsContext.Provider value={{ setCurrent, handelClick, photo }}>
         <Header />
         <Main current={current} />
       </StarWarsContext.Provider>

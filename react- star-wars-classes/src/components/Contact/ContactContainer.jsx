@@ -1,28 +1,26 @@
-import React, { Component } from 'react'
+
 import Contact from './Contact'
 import { base_url } from "../../utils/constants"
+import { useEffect, useState } from 'react';
 
 
-export default class ContactContainer extends Component {
-    constructor(props) {
-        super(props)
-      
-        this.state = {
-          isLoading:true,
-          planets:[{name:'Loading.........'}],
-        }
-      }
-      fillPlanets(url) {
+const ContactContainer = () =>{
+   
+    const [isLoading, setIsLoading] = useState(true);
+    const [planets, setPlanets] = useState([{name:'Loading.........'}]);
+    
+      const fillPlanets = (url) => {
         fetch(url)
           .then(response => response.json())
           .then(data =>{
-            this.setState({planets:data, isLoading:false})
-            localStorage.setItem("planets", JSON.stringify(this.state.planets) );
+             setPlanets(data)
+             setIsLoading(false)
+            localStorage.setItem("planets", JSON.stringify(planets) );
           });
         
       }
     
-      componentDidMount() {
+      useEffect(() => {
         
         const dateOld = localStorage.getItem('edited')
         const test = localStorage.getItem("planets")
@@ -31,27 +29,27 @@ export default class ContactContainer extends Component {
      
         if(test && dateOld >= current ){//if the date is greater than the current one, then we take it from the locale
           
-          this.setState({
-            planets:JSON.parse(localStorage.getItem("planets")), 
-            isLoading:false}
-            );
+            setPlanets(JSON.parse(localStorage.getItem("planets"))) 
+            setIsLoading(false)
   
         }else{ //if the date is less than or equal to the local one, then we take it from the local
          
-          this.fillPlanets(`${base_url}/v1/planets`);
+          fillPlanets(`${base_url}/v1/planets`);
           localStorage.setItem("edited", `${date.getDate()} ${date.getMonth()+2} ${date.getFullYear()}`);
           }
-         }
+         },[])
 
-      componentWillUnmount(){
+    //   componentWillUnmount(){
         
-      //localStorage.clear();
-    }
-  render() {
+    //   //localStorage.clear();
+    // }
+  
     return (
       <>
-       <Contact planets={this.state.planets}/>
+       <Contact planets={planets}/>
       </>
     )
-  }
+
 }
+
+export default  ContactContainer;

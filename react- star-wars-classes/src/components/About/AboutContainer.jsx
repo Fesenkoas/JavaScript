@@ -5,59 +5,51 @@ import AboutMe from "./AboutMe";
 
 const AboutContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [imgUrl, setImgUrl] = useState("");
+
+  const fillUser = (url) => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data =>{
+        setUser(data);
+        setImgUrl(`${base_url}/${data.image}`);
+        setIsLoading(false);
+        localStorage.setItem("user",  JSON.stringify(data));
+        localStorage.setItem("image", JSON.stringify(imgUrl));
+      });
+    
+  }
+
 
   useEffect(() => {
     const dateOld = localStorage.getItem("edited");
+    const oldUser = localStorage.getItem("user")
     const date = new Date();
-    const current = `${date.getDate()} ${
-      date.getMonth() + 1
-    } ${date.getFullYear()}`;
+    const current = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
 
-    if (dateOld >= current) {
+    console.log(JSON.parse(oldUser));
+
+    if (oldUser && dateOld >= current) {
       //if the date is greater than the current one, then we take it from the locale
-     
-      const oldData = {
-        name: localStorage.getItem("name"),
-        gender: localStorage.getItem("gender"),
-        skin_color: localStorage.getItem("skin_color"),
-        hair_color: localStorage.getItem("hair_color"),
-        height: localStorage.getItem("height"),
-        eye_color: localStorage.getItem("eye_color"),
-        mass: localStorage.getItem("mass"),
-        birth_year: localStorage.getItem("birth_year"),
-      };
 
-      setUser(oldData);
-      setImgUrl(localStorage.getItem("image"));
+      console.log('old');
+
+      setUser(JSON.parse(oldUser));
+      setImgUrl(`${base_url}/${user.image}`);
       setIsLoading(false);
+
     } else {
       //if the date is less than or equal to the local one, then we take it from the local
-     
-      fetch(`${base_url}/v1/peoples/1`)
-        .then((response) => response.json())
-        .then((data) => {
-          setUser(data);
-          setImgUrl(`${base_url}/${data.image}`);
-          setIsLoading(false);
-
-          localStorage.setItem(
-            "edited",
-            `${date.getDate()} ${date.getMonth() + 2} ${date.getFullYear()}`
-          );
-          localStorage.setItem("name", user.name);
-          localStorage.setItem("gender", user.gender);
-          localStorage.setItem("skin_color", user.skin_color);
-          localStorage.setItem("hair_color", user.hair_color);
-          localStorage.setItem("height", user.height);
-          localStorage.setItem("eye_color", user.eye_color);
-          localStorage.setItem("mass", user.mass);
-          localStorage.setItem("birth_year", user.birth_year);
-          localStorage.setItem("image", imgUrl);
-        });
+      fillUser(`${base_url}/v1/peoples/1`);
+      localStorage.setItem("edited", `${date.getDate()} ${date.getMonth() + 2} ${date.getFullYear()}`);
     }
   }, []);
+
+  //  useEffect(() => {return () => {
+  //   console.log('Game will unmount');
+  //   localStorage.clear();
+  // }},[])
 
   return (
     <>
@@ -67,3 +59,4 @@ const AboutContainer = () => {
 };
 
 export default AboutContainer;
+

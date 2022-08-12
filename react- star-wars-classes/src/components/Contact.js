@@ -25,7 +25,7 @@ const Contact = props => {
     } else {
       setPlanets(planets.payLoad);
     }
-    return () => console.log('Component Contact unmounted');
+    //return () => console.log('Component Contact unmounted');
   }, [])
 
   return (

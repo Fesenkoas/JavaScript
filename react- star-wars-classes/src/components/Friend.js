@@ -1,7 +1,7 @@
 import React from 'react'
 import style from '../css_modules/borderRound.module.css';
 
-const Friend = ({ photo, number }) => {
+const Friend = ({ photo, number, handelClick}) => {
     let friendStyle = 'col-4 p-1 ';
 
     if (number === 7) {
@@ -11,7 +11,7 @@ const Friend = ({ photo, number }) => {
         friendStyle += style.bottomRight;
     }
     return (
-        <img className={friendStyle} src={photo} alt="friend" />
+        <img onClick={() =>{ handelClick(photo, number)}} className={friendStyle}  src={photo} alt="friend" />
     )
 }
 

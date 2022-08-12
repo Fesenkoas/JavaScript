@@ -1,36 +1,22 @@
-import React, { useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
+import './App.css';
+import Header from './components/Header';
 import Footer from './components/Footer';
-import Main from "./components/Main";
-import { navItems } from "./utils/constants";
-import { StarWarsContext } from "./util/context";
+import Main from './components/Main';
+import React, { useState } from 'react';
+import { navItems } from './utils/constants';
 
-const App = () => {
-
-  const [current, setCurrent] = useState(navItems[0]);
-  const [zoom, setZoom] = useState(false);
-  const [photo, setPhoto] = useState(null);
-
-  const handelClick = (photo) => {
-    if (zoom) {
-      setPhoto(null );
-      setZoom(false);
-    } else {
-      setPhoto( photo );
-      setZoom(true);
-    }
-  };
+const App = props => {
+  const [currentPage, setCurrentPage] = useState(navItems[0]);
 
   return (
     <div className="container-fluid">
-      <StarWarsContext.Provider value={{ setCurrent, handelClick, photo }}>
-        <Header />
-        <Main current={current} />
-        <Footer/>
-      </StarWarsContext.Provider>
+      <Header changePage={setCurrentPage} />
+      <Main currentPage={currentPage} />
+      <Footer />
     </div>
   );
-};
+
+
+}
 
 export default App;

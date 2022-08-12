@@ -23,14 +23,13 @@ footer {
   font-size: 0.8em;
 }
 
-
-
 /*main*/
 
 .border {
   border-radius: 0 0 15px 15px; 
   border-color: goldenrod !important;
 }
+
 .float-start > img {
   box-shadow: rgba(60, 69, 67, 0.6) 10px 10px;
 }

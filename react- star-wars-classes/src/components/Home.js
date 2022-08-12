@@ -1,16 +1,16 @@
 import React from 'react'
-import DreamTeam from './DreamTeam';
-import FarGalaxyContainer from './FarGalaxy/FarGalaxyContainer';
-import Hero from './Hero';
+import DreamTeam from './DreamTeam'
+import FarGalaxy from './FarGalaxy'
+import Hero from './Hero'
 
 const Home = () => {
-  return (
-    <main className="clearfix">
+    return (
+        <main className="clearfix">
             <Hero />
             <DreamTeam />
-            <FarGalaxyContainer />
+            <FarGalaxy />
         </main>
-  )
+    )
 }
 
 export default Home

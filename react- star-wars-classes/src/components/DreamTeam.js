@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { friends } from '../utils/constants';
 import Friend from './Friend';
 import { StarWarsContext } from './../utils/context';
 

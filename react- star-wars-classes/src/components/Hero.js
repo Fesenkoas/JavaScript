@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import main from '../Images/main.jpg';
+
 import { StarWarsContext } from './../utils/context';
 
 const Hero = () => {

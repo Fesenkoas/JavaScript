@@ -8,12 +8,11 @@ import { StarWarsContext } from "./utils/context";
 
 const App = (props) => {
   const getItemByRoute = () => {
-    const route = window.location.hash.substring(2);
+    const route = window.location.hash.substring(2) ;
     const RoutSplit = route.split("/")[1];
-    const page = navItems.find((item) => item.route === route.split("/")[0]);
+    const page = navItems.find((item) => item.route === route.split("/")[0] )?? navItems[0] ;
     return { page, RoutSplit };
   };
-
   const [hero, setHero] = useState(defaultHero);
   const [currentPage, setCurrentPage] = useState(getItemByRoute().page);
 

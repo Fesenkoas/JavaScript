@@ -1,11 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "../css_modules/aboutMe.module.css";
-import { characters, periodMonth } from "../utils/constants";
+import { characters, defaultHero, periodMonth } from "../utils/constants";
 import { StarWarsContext } from '../utils/context';
+import { useParams } from 'react-router-dom';
+import { friends } from './../utils/constants';
 
 const AboutMe = () => {
   const {hero: heroUrl} = useContext(StarWarsContext)
   const [state, setState] = useState({});
+  let { heroId } = useParams();
+    
+    if(!friends.includes(heroId)){
+        heroId = defaultHero;
+        
+    }
   
   useEffect(() => {
     let hero = JSON.parse(localStorage.getItem(heroUrl));

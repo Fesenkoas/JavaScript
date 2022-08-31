@@ -17,6 +17,7 @@ const Main = () => {
             )
           )))
       }
+      
     <Route path="*" element={<ErrorPage/>}/>
     </Routes>
   );

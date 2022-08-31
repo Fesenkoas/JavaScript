@@ -6,7 +6,7 @@ const NavItem = ({ item, hero }) => {
   if(hero!=='luke'){  route = `${item.route}/${hero}`;}
   return (
     <li>
-      <Link className="nav-item btn btn-danger mx-1" to={route} replace>{item.title}</Link>
+      <Link className="nav-item btn btn-danger mx-1" to={route} >{item.title}</Link>
     </li>
   )
 }

@@ -1,0 +1,15 @@
+h1 {
+    color:gold;
+    font-weight: bold;
+    font-size: 6em;
+}
+
+h3 {
+    color: firebrick;
+    font-size: 5em;
+}
+
+h4 {
+    color: rgb(218, 198, 198);
+    font-size: 5em;
+}

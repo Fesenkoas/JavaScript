@@ -28,6 +28,13 @@ const Result = () => {
       >
         Again ?
       </button>
+      <button
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        Start
+      </button>
     </div>
   );
 };

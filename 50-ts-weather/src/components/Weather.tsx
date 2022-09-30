@@ -1,23 +1,25 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { WeatherInfo } from '../units/types'
 
-const Weather = () => {
-  const { info, message } = useSelector((state) => state.weather);
+interface Props {
+  info: WeatherInfo
+}
+
+const Weather = (props: Props) => {
+  const { message, country, city, pressure, sunset, temp } = props.info;
   return (
-    <div className="infoWeath">
-      {!message && (
+    <div className='infoWeath'>
+      {!message &&
         <div>
-          <p>
-            Location: {info.country}, {info.city}
-          </p>
-          <p>Temp: {info.temp}</p>
-          <p>Pressure: {info.pressure}</p>
-          <p>Sunset: {info.sunset}</p>
-        </div>
-      )}
+          <p>Location: {country}, {city}</p>
+          <p>Temp: {temp}</p>
+          <p>Pressure: {pressure}</p>
+          <p>Sunset: {new Date(sunset! * 1000).toLocaleTimeString()}</p>
+        </div>}
       <p>{message}</p>
     </div>
-  );
-};
+  )
 
-export default Weather;
+}
+
+export default Weather

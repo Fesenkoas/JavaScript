@@ -1,26 +1,33 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchWeatherAction } from "./actionFunction/weatherAction";
+import React, { ChangeEvent, useState } from 'react';
 
-const Form = () => {
-  const [city, setCity] = useState('');
-  const dispatch = useDispatch();
+interface Props {
+    getWeather: (city: string) => void
+}
 
-  const handleClick = () => {
-    dispatch(fetchWeatherAction(city));
-  };
+const Form = ({ getWeather }: Props) => {
+    const [city, setCity] = useState('');
 
-  return (
-    <div>
-      <input
-        onChange={(e) => setCity(e.target.value)}
-        type="text"
-        placeholder="City"
-        value={city}
-      />
-      <button onClick={handleClick}>Get weather</button>
-    </div>
-  );
-};
+    const handleClick = () => {
+        getWeather(city);
+        setCity('');
+    }
 
-export default Form;
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setCity(e.target.value);
+    }
+
+    return (
+        <div>
+            <input
+                onChange={handleChange}
+                type='text'
+                placeholder='City'
+                value={city}
+            />
+            <button onClick={handleClick}>Get weather</button>
+        </div>
+    )
+
+}
+
+export default Form
